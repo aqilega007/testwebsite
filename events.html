@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Events // UNH AI Club</title>
+    <meta name="description" content="Speakers, hackathons and workshops" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,700&family=Inter:wght@400;600&family=Rajdhani:wght@500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="ph">
+      <div class="in">
+        <span class="lbl">02 // Events</span>
+        <h1>Events</h1>
+      </div>
+    </header>
+    <main>
+      <section class="sec">
+        <div class="in split">
+          <div class="rv">
+            <span class="lbl">Next meeting</span>
+            <div
+              data-r="slot"
+              data-slot="flyer"
+              data-ph="NEXT MEETING FLYER"
+              data-alt="Next meeting flyer"
+            ></div>
+          </div>
+          <div class="rv">
+            <h2>Weekly schedule</h2>
+            <div class="tw" data-r="schedule"></div>
+          </div>
+        </div>
+      </section>
+      <section class="sec" id="speakers" style="padding-top: 0">
+        <div class="in">
+          <h2>Speaker series</h2>
+          <p>
+            Researchers and industry guests share what they build and what they have
+            learned.
+          </p>
+          <div data-r="events" data-kind="talk"></div>
+        </div>
+      </section>
+      <section class="band" id="hackathons">
+        <div class="in">
+          <h2>Hackathons</h2>
+          <p>Build weekends open to every skill level.</p>
+          <div data-r="events" data-kind="hackathon"></div>
+        </div>
+      </section>
+      <section class="sec" id="workshops">
+        <div class="in">
+          <h2>Workshops</h2>
+          <p>Hands-on sessions. Bring a laptop.</p>
+          <div data-r="events" data-kind="workshop"></div>
+        </div>
+      </section>
+      <section class="band" id="community">
+        <div class="in">
+          <h2>Community</h2>
+          <div data-r="events" data-kind="social"></div>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+    <script src="cms.js"></script>
+  </body>
+</html>
