@@ -249,6 +249,7 @@ a {
 }
 /* ===== IMAGE SLOTS + TILES ===== */
 .img {
+  position: relative;
   display: grid;
   place-items: center;
   font: 700 0.85rem Rajdhani;
@@ -667,4 +668,14 @@ dialog textarea {
   max-width: 160px;
   display: block;
   margin: 0.4rem 0;
+}
+
+/* ===== EDITABLE PHOTO BUTTON ===== */
+.photoBtn {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 2;
+  margin: 0;
+  background: rgba(8, 14, 30, 0.92);
 }

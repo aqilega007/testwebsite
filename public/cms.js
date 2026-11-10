@@ -38,6 +38,16 @@ const api = async (path, opt = {}) => {
 
 // ---------- what each editable thing looks like ----------
 // field = [key, label, type, extra]; image extra = max pixel size
+// Single photos on the Home and About pages: [key, label, max pixels]
+const PHOTOS = [
+  ["heroPhoto", "Home banner photo", 1600],
+  ["memberPhoto", "Home members photo", 1200],
+  ["aboutPhoto", "About page photo", 1200],
+  ["tile1", "Career Development tile photo", 900],
+  ["tile2", "Networking tile photo", 900],
+  ["tile3", "Hands-On Experience tile photo", 900],
+  ["tile4", "Fun & Community tile photo", 900],
+];
 const T = {
   event: {
     list: "events",
@@ -84,6 +94,9 @@ const T = {
   },
   flyer: { single: true, f: [["flyer", "Next meeting flyer", "image", 1600]] },
   groupme: { single: true, f: [["groupme", "GroupMe QR code", "image", 600]] },
+  ...Object.fromEntries(
+    PHOTOS.map(([k, label, max]) => [k, { single: true, f: [[k, label, "image", max]] }]),
+  ),
 };
 
 const rv = () => (admin ? "" : " rv");
@@ -100,6 +113,16 @@ const imgBox = (url, ph, alt = "") =>
 
 // ---------- renderers, one per data-r="..." container ----------
 const R = {
+  photo(el) {
+    const s = el.dataset.slot;
+    el.innerHTML =
+      (C[s]
+        ? `<img src="${esc(C[s])}" alt="${esc(el.dataset.alt)}">`
+        : `<span>${esc(el.dataset.ph)}</span>`) +
+      (admin
+        ? `<button type="button" class="btn o sm photoBtn" data-act="edit" data-t="${s}">Change photo</button>`
+        : "");
+  },
   slot(el) {
     const s = el.dataset.slot;
     el.innerHTML =
@@ -293,6 +316,7 @@ dlg.addEventListener("submit", async (e) => {
 document.addEventListener("click", async (e) => {
   const b = e.target.closest("[data-act]");
   if (b) {
+    e.preventDefault(); // photo buttons can sit inside link cards
     const { act, t, id, kind } = b.dataset;
     if (act === "add") openEd(t, null, kind);
     if (act === "edit") openEd(t, id);

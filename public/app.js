@@ -81,6 +81,7 @@ bg.onclick = () => bg.setAttribute("aria-expanded", hd.classList.toggle("open"))
 // Diagonal curtain transition between pages
 const cu = document.querySelector(".curtain");
 document.addEventListener("click", (e) => {
+  if (e.target.closest("[data-act]")) return;
   const a = e.target.closest('a[href$=".html"],a[href*=".html#"]');
   if (
     !a ||
