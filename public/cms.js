@@ -223,7 +223,7 @@ async function shrink(file, max) {
 // ---------- edit dialog ----------
 const dlg = document.createElement("dialog");
 document.body.appendChild(dlg);
-let cur = null; // { t, obj, isNew }
+let editing = null; // { t, obj, isNew }
 
 function field([k, label, type = "text", x], v) {
   if (type === "textarea")
@@ -238,14 +238,14 @@ function field([k, label, type = "text", x], v) {
 function openEd(t, id, kind) {
   const d = T[t];
   const found = d.single ? C : C[d.list].find((x) => x.id === id);
-  cur = {
+  editing = {
     t,
     isNew: !found,
     obj: found
       ? { ...found }
       : { id: uid(), ...(t === "event" ? { kind: kind || "talk" } : {}) },
   };
-  dlg.innerHTML = `<form><h3>${found ? "Edit" : "Add"}</h3>${d.f.map((f) => field(f, cur.obj[f[0]] ?? "")).join("")}<button class="btn" type="submit">Save</button><button class="btn o" type="button" data-close>Cancel</button></form>`;
+  dlg.innerHTML = `<form><h3>${found ? "Edit" : "Add"}</h3>${d.f.map((f) => field(f, editing.obj[f[0]] ?? "")).join("")}<button class="btn" type="submit">Save</button><button class="btn o" type="button" data-close>Cancel</button></form>`;
   dlg.showModal();
 }
 
@@ -279,12 +279,12 @@ dlg.addEventListener("change", async (e) => {
 });
 dlg.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const d = T[cur.t],
+  const d = T[editing.t],
     fd = new FormData(e.target);
-  for (const [k] of d.f) cur.obj[k] = String(fd.get(k) ?? "").trim();
-  if (d.single) Object.assign(C, cur.obj);
-  else if (cur.isNew) C[d.list].push(cur.obj);
-  else C[d.list][C[d.list].findIndex((x) => x.id === cur.obj.id)] = cur.obj;
+  for (const [k] of d.f) editing.obj[k] = String(fd.get(k) ?? "").trim();
+  if (d.single) Object.assign(C, editing.obj);
+  else if (editing.isNew) C[d.list].push(editing.obj);
+  else C[d.list][C[d.list].findIndex((x) => x.id === editing.obj.id)] = editing.obj;
   dlg.close();
   await save();
 });
