@@ -5,6 +5,15 @@ import { getStore } from "@netlify/blobs";
 import { createHmac, randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
 
 const KINDS = ["talk", "hackathon", "workshop", "social"];
+const PHOTO_KEYS = [
+  "heroPhoto",
+  "memberPhoto",
+  "aboutPhoto",
+  "tile1",
+  "tile2",
+  "tile3",
+  "tile4",
+];
 const MAX_IMG = 1_200_000; // bytes, after browser-side shrinking
 const MAX_BODY = 1_500_000; // bytes, content JSON
 const SESSION_MS = 12 * 60 * 60 * 1000;
@@ -104,6 +113,7 @@ function clean(c) {
   return {
     flyer: IMG(c.flyer),
     groupme: IMG(c.groupme),
+    ...Object.fromEntries(PHOTO_KEYS.map((k) => [k, IMG(c[k])])),
     about: S(c.about, 5000),
     events: list(c.events, 200, (e) => ({
       id: ID(e.id),
