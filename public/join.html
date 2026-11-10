@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Apply // UNH AI Club</title>
+    <meta name="description" content="Join UNH AI Club" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,700&family=Inter:wght@400;600&family=Rajdhani:wght@500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="ph">
+      <div class="in">
+        <span class="lbl">05 // Apply</span>
+        <h1>Join the Club</h1>
+      </div>
+    </header>
+    <main>
+      <section class="sec">
+        <div class="in split">
+          <div class="rv">
+            <h2>How to join</h2>
+            <ul class="l">
+              <li>Scan the GroupMe QR code to join the chat.</li>
+              <li>Fill out the interest form.</li>
+              <li>Come to any Thursday meeting. No experience needed.</li>
+            </ul>
+            <div
+              data-r="slot"
+              data-slot="groupme"
+              data-ph="GROUPME QR"
+              data-cls="sq"
+              data-alt="GroupMe QR code"
+            ></div>
+          </div>
+          <form class="fr rv" data-ok="RECEIVED // WE WILL BE IN TOUCH">
+            <label for="n">Name</label><input id="n" required /><label for="e"
+              >UNH email</label
+            ><input id="e" type="email" required /><label for="y">Year</label
+            ><select id="y">
+              <option>First-year</option>
+              <option>Sophomore</option>
+              <option>Junior</option>
+              <option>Senior</option>
+              <option>Graduate</option></select
+            ><label for="i">Interests</label><textarea id="i" rows="3"></textarea
+            ><button class="btn" type="submit">Submit</button>
+            <p class="ok" role="status"></p>
+          </form>
+        </div>
+      </section>
+      <section class="band" id="contact">
+        <div class="in">
+          <h2>Contact</h2>
+          <p>
+            Questions, sponsorships, or speaker ideas? Email
+            <a href="mailto:aiclub@unh.edu">aiclub@unh.edu</a> or find us on Instagram.
+          </p>
+          <a class="btn" href="#">Instagram</a><a class="btn o" href="#">Catalyst</a
+          ><a class="btn o" href="#">GroupMe</a>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+    <script src="cms.js"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "flyer": "",
+  "groupme": "",
+  "about": "UNH AI Club is a student community for learning, building, and discussing artificial intelligence, from a first notebook to a shipped project.\n\nWe bring together students from every major through workshops, speakers, hackathons, and team projects.",
+  "events": [
+    { "id": "e1", "title": "Training your first neural network", "kind": "workshop", "date": "2026-11-12", "time": "6:00 PM", "place": "Room TBA", "desc": "Hands-on session. Bring a laptop." },
+    { "id": "e2", "title": "Guest speaker: to be announced", "kind": "talk", "date": "2026-11-19", "time": "6:00 PM", "place": "Room TBA", "desc": "A researcher or industry guest shares what they build." },
+    { "id": "e3", "title": "Fall hackathon", "kind": "hackathon", "date": "2026-12-05", "time": "10:00 AM", "place": "Room TBA", "desc": "A full day of building in teams." },
+    { "id": "e4", "title": "Pizza and project showcase", "kind": "social", "date": "2026-12-10", "time": "6:00 PM", "place": "Room TBA", "desc": "Show what you built this semester." }
+  ],
+  "schedule": [
+    { "id": "s1", "when": "Thursdays, 6 PM", "what": "General meeting + workshop", "kind": "Weekly" },
+    { "id": "s2", "when": "Monthly", "what": "Guest speaker or panel", "kind": "Talk" },
+    { "id": "s3", "when": "Quarterly", "what": "Club hackathon", "kind": "Hackathon" }
+  ],
+  "officers": [
+    { "id": "o1", "name": "[ Name ]", "role": "President", "specialty": "Transformer architectures", "link": "", "photo": "" },
+    { "id": "o2", "name": "[ Name ]", "role": "Vice President", "specialty": "Vision and diffusion models", "link": "", "photo": "" },
+    { "id": "o3", "name": "[ Name ]", "role": "Project Lead", "specialty": "Reinforcement learning", "link": "", "photo": "" },
+    { "id": "o4", "name": "[ Name ]", "role": "Faculty Advisor", "specialty": "Machine learning research", "link": "", "photo": "" }
+  ],
+  "articles": [
+    { "id": "a1", "title": "From Notebook to Shipped: My First Model", "author": "Member name", "date": "2026-10-21", "cover": "", "body": "What I learned going from a tutorial to a working demo.\n\nReplace this sample with a real article." },
+    { "id": "a2", "title": "Hackathon Recap: 24 Hours, 6 Teams", "author": "Member name", "date": "2026-10-07", "cover": "", "body": "How the weekend went and what teams built." },
+    { "id": "a3", "title": "Why Responsible AI Starts With Data", "author": "Member name", "date": "2026-09-23", "cover": "", "body": "Dataset choices shape every result." }
+  ]
+}
